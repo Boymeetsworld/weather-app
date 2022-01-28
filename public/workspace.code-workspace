@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "../../Weather_App"
+		},
+		{
+			"path": "../node_modules"
+		},
+		{
+			"path": "../src"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}
