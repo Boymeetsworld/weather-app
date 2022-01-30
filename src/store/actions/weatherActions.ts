@@ -1,7 +1,6 @@
-import { error } from 'console';
-import { ThunkAction } from 'redux-thunk';
-import { RootState } from '..';
-import { WeatherAction, WeatherData, WeatherError, GET_WEATHER, SET_LOADING, SET_ERROR } from '../types';
+import {ThunkAction} from 'redux-thunk';
+import {RootState} from '..';
+import {GET_WEATHER, SET_ERROR, SET_LOADING, WeatherAction, WeatherData, WeatherError} from '../types';
 
 export const getWeather = (city: string): ThunkAction<void, RootState, null, WeatherAction> => {
   return async dispatch => {
@@ -19,9 +18,12 @@ export const getWeather = (city: string): ThunkAction<void, RootState, null, Wea
         payload: resData
       });
     }catch(err) {
+      // @ts-ignore
+      // @ts-ignore
+      const {message} = err;
       dispatch({
         type: SET_ERROR,
-        payload: err.message
+        payload: message
       });
     }
   }

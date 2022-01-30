@@ -1,4 +1,3 @@
-import { disconnect } from "process";
 import React, { FC } from "react";
 
 interface AlertProps {

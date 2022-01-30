@@ -1,4 +1,3 @@
-
 import { WeatherState, WeatherAction, GET_WEATHER, SET_LOADING, SET_ERROR } from "../types";
 
 const initialState: WeatherState = {
@@ -20,13 +19,13 @@ export default (state = initialState, action: WeatherAction): WeatherState => {
         ...state,
         loading: true
       }
-    case SET_ERROR: 
+    case SET_ERROR:
       return {
         ...state,
         error: action.payload,
         loading: false
       }
-    default: 
+    default:
       return state;
   }
 }

@@ -4,7 +4,6 @@ import thunk from 'redux-thunk';
 
 import weatherReducer from './reducer/weatherReducer';
 import alertReducer from './reducer/alertReducer';
-import { type } from 'os';
 
 const rootReducer = combineReducers({
     weather: weatherReducer,

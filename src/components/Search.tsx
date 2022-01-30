@@ -1,7 +1,7 @@
-import React, { FC, FormEvent, useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { FC, useState, FormEvent } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { setAlert } from "../store/actions/alertActions";
+import { setAlert } from '../store/actions/alertActions';
 import { getWeather, setLoading } from '../store/actions/weatherActions';
 
 interface SearchProps {
@@ -10,13 +10,13 @@ interface SearchProps {
 
 const Search: FC<SearchProps> = ({ title }) => {
     const dispatch = useDispatch();
-    const [city, setCity] =useState('');
+    const [city, setCity] = useState('');
 
     const changeHandler = (e: FormEvent<HTMLInputElement>) => {
         setCity(e.currentTarget.value);
     }
 
-    const submitHandler = (e: FormEvent<HTMLInputElement>) => {
+    const submitHandler = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if(city.trim() === '') {
@@ -27,12 +27,13 @@ const Search: FC<SearchProps> = ({ title }) => {
         dispatch(getWeather(city));
         setCity('');
     }
+
     return(
         <div className="hero is-light has-text-centered">
             <div className="hero-body">
-                <div className="Container">
+                <div className="container">
                     <h1 className="title">{title}</h1>
-                    <form className="py-5">
+                    <form className="py-5" onSubmit={submitHandler}>
                         <input
                             type="text"
                             className="input has-text-centered mb-2"
